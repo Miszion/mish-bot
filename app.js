@@ -2,7 +2,7 @@ const sendMessage = require('./helper');
 const sendCustom = require('./customhelper');
 var Person = require('./Person');
 const http = require('http');
-const express = require('./node_modules/@types/express/index');
+const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
 

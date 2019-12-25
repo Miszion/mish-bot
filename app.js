@@ -51,7 +51,7 @@ let dayNumber = date.getDay();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/', (req, res) => {
+app.post('*', (req, res) => {
   const twiml = new MessagingResponse();
 
   if (req.body.Body == 'hello') {

@@ -32,6 +32,8 @@ let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+sendCustom(nathan, "Did you get this message? - Mish bot");
+
 app.post('*', (req, res) => {
   const twiml = new MessagingResponse();
 

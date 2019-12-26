@@ -54,13 +54,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('*', (req, res) => {
   const twiml = new MessagingResponse();
 
-  if (req.body.Body == 'hello') {
-    twiml.message('Hi!');
-  } else if (req.body.Body == 'bye') {
-    twiml.message('Goodbye');
-  } else {
+  if (req.body.Body.toLowercase() == 'basement') {
+    twiml.message('Basement chores include: \n-Sweeping\n-Cleaning the Bathroom\n-Cleaning the living area');
+  } else if (req.body.Body.toLowercase() == 'upstairs') {
+    twiml.message('Upstairs chores include: \n-Vacuuming carpet\n-Cleaning upstairs bathroom\n-Cleaning your own room');
+  } 
+  else if (req.body.Body.toLowercase() == 'purpose') {
+    twiml.message('My name is Mish Bot! My purpose is to help the house with any chore tasks and general announcements!')
+  }
+  else if (req.body.Body.toLowercase() == 'commands') {
+
+    twiml.message('Available commands:\n-basement\n-upstairs\n-purpose')
+
+  }
+    else {
     twiml.message(
-      'No Body param match, Twilio sends this in the request to your server.'
+      'Mish bot could not understand :('
     );
   }
 

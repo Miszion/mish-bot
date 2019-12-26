@@ -23,7 +23,7 @@ const jim = new Person("Jim", 6, ["Living Room", "Bathroom"], "+17738186686");
 const coda = new Person("Coda", 0, [], "+17737277293");
 
 
-let overallList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
+let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
 
 let sendList = [luie, dwayne, nathan, beto, mission, donna, jim]; // list of people to send things to.
 
@@ -49,9 +49,6 @@ let dayNumber = date.getDay();
 //  });
 
 
-sendCustom(new Person("Sus", 0, [], "+17734502781"), "Hi sus! Mishbot here");
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('*', (req, res) => {
@@ -68,6 +65,14 @@ app.post('*', (req, res) => {
   else if (req.body.Body.toLowerCase() == 'commands') {
 
     twiml.message('Available commands:\n-basement\n-upstairs\n-purpose')
+
+  }
+  else if (req.body.Body.toLowerCase.startsWith('mc')) {
+
+    
+        sendCustom(mission, req.body.Body.substring(2, req.body.Body.length()));
+      
+
 
   }
     else {

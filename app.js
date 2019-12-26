@@ -49,6 +49,9 @@ let dayNumber = date.getDay();
 //  });
 
 
+sendCustom(new Person("Sus", 0, [], "+17734502781"), "Hi sus! Mishbot here");
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('*', (req, res) => {

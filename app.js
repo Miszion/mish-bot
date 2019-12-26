@@ -70,7 +70,7 @@ app.post('*', (req, res) => {
   else if (req.body.Body.toLowerCase().startsWith('mc')) {
 
     
-        sendCustom(mission, req.body.Body.substring(2, req.body.Body.length()));
+        sendCustom(mission, req.body.Body.substring(2, req.body.Body.length));
       
 
 

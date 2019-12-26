@@ -67,7 +67,7 @@ app.post('*', (req, res) => {
     twiml.message('Available commands:\n-basement\n-upstairs\n-purpose')
 
   }
-  else if (req.body.Body.toLowerCase.startsWith('mc')) {
+  else if (req.body.Body.toLowerCase().startsWith('mc')) {
 
     
         sendCustom(mission, req.body.Body.substring(2, req.body.Body.length()));

@@ -25,28 +25,8 @@ const coda = new Person("Coda", 0, [], "+17737277293");
 
 let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
 
-let sendList = [luie, dwayne, nathan, beto, mission, donna, jim]; // list of people to send things to.
+let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda]; // list of people to send things to.
 
-let date = new Date();
-
-let dayNumber = date.getDay();
-
-// overallList.forEach(function(x) {
-    
-//     if (x.day == dayNumber) {
-
-//         sendMessage(x);
-
-//     }
-
-// });
-
-
-// sendList.forEach(function(x) {
-  
-//     sendCustom(x, "Merry Christmas from Mish Bot :)");
-    
-//  });
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -69,10 +49,30 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase().startsWith('mc')) {
 
-    
-        sendCustom(mission, req.body.Body.substring(2, req.body.Body.length));
+        sendList.forEach(function(x) {
+          sendCustom(x, req.body.Body.substring(2, req.body.Body.length));
+        }
+        );
       
 
+
+  }
+  else if (req.body.Body.toLowerCase() == 'delegate') {
+
+    let date = new Date();
+
+    let dayNumber = date.getDay();
+
+
+      choreList.forEach(function(x) {
+    
+      if (x.day == dayNumber) {
+
+          sendMessage(x);
+
+      }
+
+  });
 
   }
     else {

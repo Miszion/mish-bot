@@ -21,11 +21,12 @@ const donna2 = new Person("Donna", 5, ["Living Room"], "+13127314590");
 const jim = new Person("Jim", 6, ["Living Room", "Bathroom"], "+17738186686");
 
 const coda = new Person("Coda", 0, [], "+17737277293");
+const geneva = new Person("Geneva", 0, [], "+17736822576")
 
 
 let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
 
-let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda]; // list of people to send things to.
+let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; // list of people to send things to.
 
 
 

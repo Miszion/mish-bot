@@ -21,10 +21,10 @@ const donna2 = new Person("Donna", 5, ["Living Room"], "+13127314590");
 const jim = new Person("Jim", 6, ["Living Room", "Bathroom"], "+17738186686");
 
 const coda = new Person("Coda", 0, [], "+17737277293");
-const geneva = new Person("Geneva", 0, [], "+17736822576")
+const geneva = new Person("Geneva", 4, ["Living Room", "Kitchen"], "+17736822576")
 
 
-let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
+let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2, geneva];
 
 let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; // list of people to send things to.
 
@@ -32,7 +32,6 @@ let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-sendCustom(nathan, "Did you get this message? - Mish bot");
 
 app.post('*', (req, res) => {
   const twiml = new MessagingResponse();

@@ -63,12 +63,12 @@ app.post('*', (req, res) => {
 
     let date = new Date();
 
-    let dayNumber = date.getDay();
+    let dayNumber = date.getUTCDay();
 
 
       choreList.forEach(function(x) {
     
-      if (x.day === dayNumber) {
+      if (x.getDay() === dayNumber) {
 
           sendMessage(x);
 

@@ -68,7 +68,7 @@ app.post('*', (req, res) => {
 
       choreList.forEach(function(x) {
     
-      if (x.day == dayNumber) {
+      if (x.day === dayNumber) {
 
           sendMessage(x);
 

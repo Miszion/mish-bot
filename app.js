@@ -6,6 +6,8 @@ const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
 
+const moment = require('moment');
+
 const app = express();
 
 var port = process.env.PORT || 3000;
@@ -27,8 +29,6 @@ const geneva = new Person("Geneva", 4, ["Living Room", "Kitchen"], "+17736822576
 let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2, geneva];
 
 let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; // list of people to send things to.
-
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -61,9 +61,9 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase() == 'delegate') {
 
-    let date = new Date();
+    let dateObject = new Date("December 26, 2019 10:45:00")
 
-    let dayNumber = date.getUTCDay();
+    let dayNumber = dateObject.getDay();
 
 
       choreList.forEach(function(x) {

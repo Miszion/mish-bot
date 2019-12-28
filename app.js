@@ -36,18 +36,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('*', (req, res) => {
   const twiml = new MessagingResponse();
 
-  if (req.body.Body.toLowerCase() == 'basement') {
-    twiml.message('Basement chores include: \n-Sweeping\n-Cleaning the Bathroom\n-Cleaning the living area');
-  } else if (req.body.Body.toLowerCase() == 'upstairs') {
-    twiml.message('Upstairs chores include: \n-Vacuuming carpet\n-Cleaning upstairs bathroom\n-Cleaning your own room');
-  } 
-  else if (req.body.Body.toLowerCase() == 'purpose') {
+  if (req.body.Body.toLowerCase() == 'purpose') {
     twiml.message('My name is Mish Bot! My purpose is to help the house with any chore tasks and general announcements!')
   }
   else if (req.body.Body.toLowerCase() == 'commands') {
 
-    twiml.message('Available commands:\n-basement\n-upstairs\n-purpose')
+    twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning')
 
+  }
+  else if(req.body.Body.toLowerCase() == 'req') {
+    twiml.message(req);
+    twiml.message(res);
   }
   else if (req.body.Body.toLowerCase().startsWith('mc')) {
 
@@ -55,14 +54,15 @@ app.post('*', (req, res) => {
           sendCustom(x, req.body.Body.substring(2, req.body.Body.length));
         }
         );
-      
-
-
+    
   }
   else if (req.body.Body.toLowerCase() == 'delegate') {
 
     delegate();
 
+  }
+  else if (req.body.Body.toLowerCase() == 'cleaning') {
+    twiml.message('Link to Cleaning List: https://docs.google.com/spreadsheets/d/1CQ6sKyDGE2iZKGcy7090hXqiS_Hnvw-PHBT9BYY0XlY/edit?usp=sharing')
   }
     else {
     twiml.message(

@@ -61,20 +61,7 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase() == 'delegate') {
 
-    let dateObject = new Date("December 26, 2019 10:45:00")
-
-    let dayNumber = dateObject.getDay();
-
-
-      choreList.forEach(function(x) {
-    
-      if (x.getDay() === dayNumber) {
-
-          sendMessage(x);
-
-      }
-
-  });
+    delegate();
 
   }
     else {
@@ -87,6 +74,41 @@ app.post('*', (req, res) => {
   res.end(twiml.toString());
 });
 
+
+function delegate() {
+
+    let dateObject = new Date();
+  
+    let dayNumber = dateObject.getDay();
+  
+      choreList.forEach(function(x) {
+    
+      if (x.getDay() === dayNumber) {
+  
+          sendMessage(x);
+  
+      }
+  
+  });
+
+  applyDaily();
+  
+}
+
+
+function applyDaily() {
+
+  setTimeout(delegate, 1000 * 60 * 60 * 24);
+}
+
+
+
 http.createServer(app).listen(port, () => {
-  console.log('Express server listening');
+  console.log('Mish bot server :)');
+
+
+  setTimeout(applyDaily, 1000 * 60 * 60 * 16);
+
+ 
+
 });

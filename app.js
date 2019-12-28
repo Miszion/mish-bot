@@ -90,14 +90,25 @@ function delegate() {
       }
   
   });
+
   
 }
+
+
+function applyDaily() {
+
+  delegate();
+  setTimeout(applyDaily, 1000 * 60 * 60 * 24);
+}
+
 
 
 http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
-  delegate();
 
+  setTimeout(applyDaily, 1000 * 60 * 60 * 16);
+
+ 
 
 });

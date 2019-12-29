@@ -58,7 +58,7 @@ app.post('*', (req, res) => {
 
     const dayString = req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length);
 
-    const day = Number(dayString);
+    const day = parseInt(dayString, 10)
 
     console.log(day);
 

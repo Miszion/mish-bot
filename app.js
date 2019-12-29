@@ -37,18 +37,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('*', (req, res) => {
   const twiml = new MessagingResponse();
 
-  if (req.body.Body.toLowerCase() == 'purpose') {
+  if (req.body.Body.toLowerCase().trim() == 'purpose') {
     twiml.message('My name is Mish Bot! My purpose is to help the house with any chore tasks and general announcements!')
   }
-  else if (req.body.Body.toLowerCase() == 'commands') {
+  else if (req.body.Body.toLowerCase().trim() == 'commands') {
 
     twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning')
 
   }
-  else if(req.body.Body.toLowerCase() == 'req') {
-    twiml.message(JSON.stringify(req.body));
+  else if(req.body.Body.toLowerCase().trim() == 'zone') {
+    
+    choreList.forEach(function(x) {
+
+      if (x.phoneNumber.substring(1, x.phoneNumber.length) == req.body.From) {
+        twiml.message('Your zone(s) are ' + x.choreList.join(' and '));
+      }
+    })
+
   }
-  else if (req.body.Body.toLowerCase().startsWith('mc')) {
+  else if (req.body.Body.toLowerCase().trim().startsWith('mc')) {
 
         sendList.forEach(function(x) {
           sendCustom(x, req.body.Body.substring(2, req.body.Body.length));
@@ -56,12 +63,12 @@ app.post('*', (req, res) => {
         );
     
   }
-  else if (req.body.Body.toLowerCase() == 'delegate') {
+  else if (req.body.Body.toLowerCase().trim() == 'delegate') {
 
     delegate();
 
   }
-  else if (req.body.Body.toLowerCase() == 'cleaning') {
+  else if (req.body.Body.toLowerCase().trim() == 'cleaning') {
     twiml.message('Link to Cleaning List: https://docs.google.com/spreadsheets/d/1CQ6sKyDGE2iZKGcy7090hXqiS_Hnvw-PHBT9BYY0XlY/edit?usp=sharing')
   }
     else {

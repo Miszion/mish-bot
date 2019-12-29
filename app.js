@@ -55,7 +55,7 @@ app.post('*', (req, res) => {
 
   }
   else if (req.body.Body.toLowerCase().trim().startsWith('query')){
-    const day = req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length);
+    const day = parseInt(req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length), 10);
 
       choreList.forEach(function(x) {
     
@@ -127,7 +127,7 @@ http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
 
-  setTimeout(applyDaily, 1000 * 60 * 60 * 14);
+  setTimeout(applyDaily, 1000 * 60 * 60 * 12);
 
  
 

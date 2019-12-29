@@ -46,7 +46,7 @@ app.post('*', (req, res) => {
 
   }
   else if(req.body.Body.toLowerCase() == 'req') {
-    twiml.message(res.json({requestBody: req.body}));
+    twiml.message(JSON.stringify(req.body));
   }
   else if (req.body.Body.toLowerCase().startsWith('mc')) {
 
@@ -107,7 +107,7 @@ http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
 
-  setTimeout(applyDaily, 1000 * 60 * 60 * 16);
+  setTimeout(applyDaily, 1000 * 60 * 60 * 14);
 
  
 

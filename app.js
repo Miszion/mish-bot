@@ -54,7 +54,7 @@ app.post('*', (req, res) => {
     })
 
   }
-  else if (req.body.Body.toLowerCase().trim() == 'test'){
+  else if (req.body.Body.toLowerCase().trim().startsWith('test')){
     const day = req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length);
 
       choreList.forEach(function(x) {

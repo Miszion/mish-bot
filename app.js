@@ -54,6 +54,20 @@ app.post('*', (req, res) => {
     })
 
   }
+  else if (req.body.Body.toLowerCase().trim() == 'test'){
+    const day = 5;
+
+      choreList.forEach(function(x) {
+    
+        if (x.hasDay(dayNumber)) {
+    
+            sendMessage(x);
+    
+        }
+    
+    })
+
+  }
   else if (req.body.Body.toLowerCase().trim().startsWith('mc')) {
 
         sendList.forEach(function(x) {

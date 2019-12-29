@@ -65,11 +65,10 @@ app.post('*', (req, res) => {
     
         if (x.hasDay(day)) {
 
+          choreList.forEach( (y) => {
 
-          choreList.forEach( (x) => {
-
-            if (x.phoneNumber == req.body.From) {
-              sendCustom(x, `Name: ${x.name}\nZones on Day: ${ (x.dayList.length == 1 ? x.choreList.join(' and ') : x.choreList[x.selectedIndex])}`); // send a test message to me
+            if (y.phoneNumber == req.body.From) {
+              sendCustom(x, `Name: ${y.name}\nZones on Day: ${ (y.dayList.length == 1 ? y.choreList.join(' and ') : y.choreList[y.selectedIndex])}`); // send a test message to me
             }
 
           })

@@ -29,7 +29,7 @@ module.exports = class Person {
 
     getInformation() {
 
-        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])`;
+        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])}`;
 
 
     }

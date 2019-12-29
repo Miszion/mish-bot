@@ -64,7 +64,7 @@ app.post('*', (req, res) => {
       choreList.forEach(function(x) {
     
         if (x.hasDay(day)) {
-          twiml.message(`Name: ${y.name}\nZones on Day: ${ (y.dayList.length == 1 ? y.choreList.join(' and ') : y.choreList[y.selectedIndex])}`); // send a test message to me
+          twiml.message(`Name: ${x.name}\nZones on Day: ${ (x.dayList.length == 1 ? x.choreList.join(' and ') : x.choreList[x.selectedIndex])}`); // send a test message to me
         }
 
     
@@ -154,7 +154,7 @@ http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
 
-  setTimeout(applyDaily, 1000 * 60 * 60 * 12);
+  setTimeout(applyDaily, 1000 * 60 * 60 * 10);
 
  
 

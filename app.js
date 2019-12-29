@@ -56,11 +56,9 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase().trim().startsWith('query')){
 
-    const dayString = req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length);
+    const dayString = req.body.Body.toLowerCase().trim().substring(6, req.body.Body.length);
 
     const day = parseInt(dayString, 10)
-
-    console.log(dayString);
 
       choreList.forEach(function(x) {
     

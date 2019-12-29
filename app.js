@@ -41,7 +41,7 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase().trim() == 'commands') {
 
-    twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning')
+    twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning\n - Zone')
 
   }
   else if(req.body.Body.toLowerCase().trim() == 'zone') {

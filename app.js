@@ -61,7 +61,7 @@ app.post('*', (req, res) => {
     
         if (x.hasDay(dayNumber)) {
     
-            sendMessage(x);
+            sendCustom(mission, x.getInformation());
     
         }
     

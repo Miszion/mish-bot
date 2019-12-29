@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 
 const app = express();
+app.use(express.json());
 
 var port = process.env.PORT || 3000;
 
@@ -45,8 +46,7 @@ app.post('*', (req, res) => {
 
   }
   else if(req.body.Body.toLowerCase() == 'req') {
-    twiml.message(req);
-    twiml.message(res);
+    twiml.message(res.json({requestBody: req.body}));
   }
   else if (req.body.Body.toLowerCase().startsWith('mc')) {
 

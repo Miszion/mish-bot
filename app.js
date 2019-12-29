@@ -26,7 +26,7 @@ const coda = new Person("Coda", 0, [], "+17737277293");
 const geneva = new Person("Geneva", 4, ["Living Room", "Kitchen"], "+17736822576")
 
 
-let choreList = [luie, dwayne, nathan, beto, mission, donna, jim, donna2];
+let choreList = [luie, dwayne, nathan, beto, mission, donna, jim];
 
 let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; // list of people to send things to.
 

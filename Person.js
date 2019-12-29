@@ -16,8 +16,8 @@ module.exports = class Person {
         let dayArray=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         
         for (var x in this.dayList) {
-            if (dayList[x] == number){
-                this.day = dayArray[day];
+            if (this.dayList[x] == number){
+                this.day = dayArray[x];
 
                 if (this.dayList.length == 2) {
                     this.selectedIndex = x;

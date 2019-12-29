@@ -62,10 +62,10 @@ app.post('*', (req, res) => {
         if (x.hasDay(day)) {
     
             sendCustom(mission, x.getInformation());
+            console.log(mission.name);
     
         }
 
-        console.log("hello");
     
     })
 

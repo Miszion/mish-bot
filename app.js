@@ -55,7 +55,7 @@ app.post('*', (req, res) => {
 
   }
   else if (req.body.Body.toLowerCase().trim() == 'test'){
-    const day = 5;
+    const day = 1;
 
       choreList.forEach(function(x) {
     

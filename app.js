@@ -54,15 +54,14 @@ app.post('*', (req, res) => {
     })
 
   }
-  else if (req.body.Body.toLowerCase().trim().startsWith('test')){
+  else if (req.body.Body.toLowerCase().trim().startsWith('query')){
     const day = req.body.Body.toLowerCase().trim().substring(4, req.body.Body.length);
 
       choreList.forEach(function(x) {
     
         if (x.hasDay(day)) {
             
-            sendCustom(mission, x.getInformation());
-            console.log("has day");
+            sendCustom(mission, `Name: ${x.name}\nZones on Day: ${ (x.dayList.length == 1 ? x.choreList.join(' and ') : x.choreList[x.selectedIndex])}`); // send a test message to me
         }
 
     

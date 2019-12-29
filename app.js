@@ -64,15 +64,7 @@ app.post('*', (req, res) => {
       choreList.forEach(function(x) {
     
         if (x.hasDay(day)) {
-
-          choreList.forEach( (y) => {
-
-            if (y.phoneNumber == req.body.From) {
-              sendCustom(x, `Name: ${y.name}\nZones on Day: ${ (y.dayList.length == 1 ? y.choreList.join(' and ') : y.choreList[y.selectedIndex])}`); // send a test message to me
-            }
-
-          })
-
+          twiml.message(`Name: ${y.name}\nZones on Day: ${ (y.dayList.length == 1 ? y.choreList.join(' and ') : y.choreList[y.selectedIndex])}`); // send a test message to me
         }
 
     

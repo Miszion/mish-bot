@@ -63,8 +63,16 @@ app.post('*', (req, res) => {
       choreList.forEach(function(x) {
     
         if (x.hasDay(day)) {
-            
-            sendCustom(mission, `Name: ${x.name}\nZones on Day: ${ (x.dayList.length == 1 ? x.choreList.join(' and ') : x.choreList[x.selectedIndex])}`); // send a test message to me
+
+
+          choreList.forEach( (x) => {
+
+            if (x.phoneNumber == req.body.From) {
+              sendCustom(x, `Name: ${x.name}\nZones on Day: ${ (x.dayList.length == 1 ? x.choreList.join(' and ') : x.choreList[x.selectedIndex])}`); // send a test message to me
+            }
+
+          })
+
         }
 
     

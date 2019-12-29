@@ -12,7 +12,7 @@ module.exports = class Person {
 
     hasDay(number) {
         
-        for (x in this.dayList) {
+        for (var x in this.dayList) {
             if (x == number){
                 this.day = number;
 

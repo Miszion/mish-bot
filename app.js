@@ -49,7 +49,7 @@ app.post('*', (req, res) => {
     
     choreList.forEach(function(x) {
 
-      if (x.phoneNumber.substring(1, x.phoneNumber.length) == req.body.From) {
+      if (x.phoneNumber == req.body.From) {
         twiml.message('Your zone(s) are ' + x.choreList.join(' and '));
       }
     })

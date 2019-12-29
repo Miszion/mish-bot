@@ -60,7 +60,7 @@ app.post('*', (req, res) => {
 
     const day = parseInt(dayString, 10)
 
-    console.log(day);
+    console.log(dayString);
 
       choreList.forEach(function(x) {
     

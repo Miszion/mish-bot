@@ -41,7 +41,7 @@ app.post('*', (req, res) => {
   }
   else if (req.body.Body.toLowerCase().trim() == 'commands') {
 
-    twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning\n - Zone')
+    twiml.message('Available commands:\n\n - Commands\n - Purpose\n - Cleaning\n - Zone\n - Query {day}')
 
   }
   else if(req.body.Body.toLowerCase().trim() == 'zone') {
@@ -58,8 +58,9 @@ app.post('*', (req, res) => {
 
     const dayString = req.body.Body.toLowerCase().trim().substring(6, req.body.Body.length);
 
-    const day = parseInt(dayString, 10)
+    const day = determineDay(dayString)
 
+    if (day < 7) {
       choreList.forEach(function(x) {
     
         if (x.hasDay(day)) {
@@ -77,6 +78,7 @@ app.post('*', (req, res) => {
 
     
     })
+  }
 
   }
   else if (req.body.Body.toLowerCase().trim().startsWith('mc')) {
@@ -130,6 +132,29 @@ function applyDaily() {
 
   delegate();
   setTimeout(applyDaily, 1000 * 60 * 60 * 24);
+}
+
+function determineDay(dayString) {
+
+  switch(dayString) {
+    case 'sunday': 
+      return 0;
+    case 'monday':
+      return 1;
+    case 'tuesday':
+      return 2;
+    case 'wednesday':
+      return 3;
+    case 'thursday':
+      return 4;
+    case 'friday':
+      return 5;
+    case 'saturday':
+      return 6;
+    default:
+      return 7;
+  }
+
 }
 
 

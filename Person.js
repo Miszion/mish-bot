@@ -8,13 +8,16 @@ module.exports = class Person {
         this.choreList = choreList;
         this.phoneNumber = phoneNumber;
 
+
     }
 
     hasDay(number) {
+
+        let dayArray=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         
         for (var x in this.dayList) {
             if (x == number){
-                this.day = number;
+                this.day = dayArray[day];
 
                 if (this.dayList.length == 2) {
                     this.selectedIndex = x;
@@ -29,7 +32,7 @@ module.exports = class Person {
 
     getInformation() {
 
-        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])}`;
+        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) today are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])}`;
 
 
     }

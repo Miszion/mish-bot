@@ -64,6 +64,8 @@ app.post('*', (req, res) => {
             sendCustom(mission, x.getInformation());
     
         }
+
+        console.log("hello");
     
     })
 

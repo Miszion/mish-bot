@@ -59,7 +59,7 @@ app.post('*', (req, res) => {
 
       choreList.forEach(function(x) {
     
-        if (x.hasDay(dayNumber)) {
+        if (x.hasDay(day)) {
     
             sendCustom(mission, x.getInformation());
     

@@ -84,7 +84,7 @@ app.post('*', (req, res) => {
 
   }
   else if (req.url == '/get') {
-    delegate();
+    delegateJob();
   }
   else if (req.body.Body.toLowerCase().trim() == 'cleaning') {
     twiml.message('Link to Cleaning List: https://docs.google.com/spreadsheets/d/1CQ6sKyDGE2iZKGcy7090hXqiS_Hnvw-PHBT9BYY0XlY/edit?usp=sharing')
@@ -156,9 +156,5 @@ function determineDay(dayString) {
 
 http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
-
-  delegateJob();
-
  
-
 });

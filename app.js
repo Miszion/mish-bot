@@ -155,7 +155,7 @@ http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
   var j = scheduler.scheduleJob('*/5 * * * *', function() {
-    delegateJob():
+    delegateJob();
   })
 
  

@@ -34,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/send', (req, res) => {
 
   delegateJob();
+  res.writeHead(200, { 'Content-Type': 'text/xml' });
+  res.end();
 
 });
 

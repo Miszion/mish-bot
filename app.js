@@ -122,7 +122,10 @@ function delegate() {
 function applyDaily() {
 
   delegate();
-  setTimeout(applyDaily, 1000 * 60 * 60 * 24);
+}
+
+function delegateJob() {
+  sendMessage(choreList[4]);
 }
 
 function determineDay(dayString) {
@@ -153,8 +156,7 @@ function determineDay(dayString) {
 http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
 
-
-  setTimeout(applyDaily, 1000 * 60 * 60 * 10);
+  delegateJob();
 
  
 

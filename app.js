@@ -6,8 +6,6 @@ const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
 
-const moment = require('moment');
-
 const app = express();
 app.use(express.json());
 
@@ -84,6 +82,9 @@ app.post('*', (req, res) => {
 
     delegate();
 
+  }
+  else if (req.url == '/get') {
+    delegate();
   }
   else if (req.body.Body.toLowerCase().trim() == 'cleaning') {
     twiml.message('Link to Cleaning List: https://docs.google.com/spreadsheets/d/1CQ6sKyDGE2iZKGcy7090hXqiS_Hnvw-PHBT9BYY0XlY/edit?usp=sharing')

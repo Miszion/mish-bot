@@ -32,7 +32,7 @@ module.exports = class Person {
 
     getInformation() {
 
-        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) today are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])}`;
+        return `Good Morning, ${this.name}.\nToday is ${this.day}. Your zone(s) today are: ${ (this.dayList.length == 1 ? this.choreList.join(' and ') : this.choreList[this.selectedIndex])}. When you are finished, please initial the box next to your name on the checklist located on the main floor refridgerator.`;
 
 
     }

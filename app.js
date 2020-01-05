@@ -83,7 +83,7 @@ app.post('*', (req, res) => {
     delegate();
 
   }
-  else if (req.url == '/get') {
+  else if (req.path == '/send') {
     delegateJob();
   }
   else if (req.body.Body.toLowerCase().trim() == 'cleaning') {

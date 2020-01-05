@@ -5,7 +5,7 @@ const http = require('http');
 const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
-
+const scheduler = require('node-schedule');
 const app = express();
 app.use(express.json());
 
@@ -29,15 +29,6 @@ let choreList = [luie, dwayne, nathan, beto, mission, donna, jim];
 let sendList = [luie, dwayne, nathan, beto, mission, donna, jim, coda, geneva]; // list of people to send things to.
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
-app.get('/send', (req, res) => {
-
-  delegateJob();
-  res.writeHead(200, { 'Content-Type': 'text/xml' });
-  res.end();
-
-});
 
 
 app.post('*', (req, res) => {
@@ -162,6 +153,10 @@ function determineDay(dayString) {
 
 http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
+
+  var j = scheduler.scheduleJob('*/5 * * * *', function() {
+    delegateJob():
+  })
 
  
 });

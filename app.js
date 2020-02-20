@@ -153,8 +153,5 @@ function determineDay(dayString) {
 
 http.createServer(app).listen(port, () => {
   console.log('Mish bot server :)');
-
-  delegate();
-
  
 });

@@ -1,6 +1,6 @@
 function sendCustom(person, text) {
-    var accountSID = "AC9a55761f5bfb0d20fad8386267e07dc5";
-    var authToken = "8f6690f4dcfaae58d31306dfd9d7fd9d";
+    var accountSID = "INSERT ACCOUNT SID";
+    var authToken = "INSERT AUTH TOKEN";
     var twilio = require('twilio');
 
     var client = new twilio(accountSID, authToken);
@@ -8,7 +8,7 @@ function sendCustom(person, text) {
     client.messages.create({
     body: text,
     to: person.phoneNumber,
-    from: '+17736921543' // base number
+    from: 'INSERT BASE NUMBER' // base number
 }).then((message) => console.log(message.sid));
 }
 
